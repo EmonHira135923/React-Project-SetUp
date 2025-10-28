@@ -1,4 +1,4 @@
-> > > > > > > > > > > > > > > > > > > > > > React Project Set Up NPM Install <<<<<<<<<<<<<<<<<
+### React Project Set Up NPM Install
 
 ### Project Set Up
 
@@ -11,3 +11,7 @@
 7 ----> React Lucide-React
 8 ----> React Recharts --- Done
 9 ----> React Axios --- Done
+
+### Project NPM All Package.
+
+npm i -D daisyui@latest npm install tailwindcss @tailwindcss/vite npm i react-icons npm i react-toastify npm install lucide-react npm install recharts npm install axios

@@ -4,7 +4,7 @@
 1 ----> React SetUp --- Done
 2 ----> Tailwind -- Done
 3 ----> DaisyUI -- Done 
-4 ----> React Router
+4 ----> React Router -- Done
 5 ----> React Icon
 6 ----> React Tostify
 7 ----> React Lucide-React
