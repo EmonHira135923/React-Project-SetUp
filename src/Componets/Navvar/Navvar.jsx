@@ -1,92 +1,70 @@
 import React, { useState } from "react";
-import { Menu, X, Github, House, UserPlus, LogIn } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router";
 
-const Navvar = () => {
-  const activeclass =
-    "border-b-2 border-[#632ee3] bg-clip-text bg-gradient-to-r from-[#632ee3] to-[#9f62f2] text-purple-700 font-bold";
-  const [toggle, settoggle] = useState(true);
-
-  // Dynamic Nav items
-  const navItems = [
-    { name: "Home", path: "/", icon: <House /> },
-    { name: "Register", path: "/register", icon: <UserPlus /> },
-    { name: "LogIn", path: "/login", icon: <LogIn /> },
-  ];
+const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
 
   return (
-    <nav className="p-5 bg-gray-50 shadow-md ">
-      <div className="flex justify-between gap-5 items-center mt-3 text-xl font-bold ">
-        {/* Start: Logo and Mobile Menu Button */}
+    <nav className="w-full bg-white shadow-md sticky top-0 z-50">
+      <div className="max-w-[1550px] mx-auto px-6 md:px-10 flex justify-between items-center py-3">
+        {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="md:hidden flex">
-            <button onClick={() => settoggle(!toggle)}>
-              {toggle ? <Menu /> : <X />}
-            </button>
-          </div>
-          <NavLink className="flex gap-2 items-center" to="/">
+          <button className="md:hidden" onClick={() => setToggle(!toggle)}>
+            {toggle ? <X /> : <Menu />}
+          </button>
+          <NavLink to="/" className="flex items-center gap-2">
             <img
-              src=""
-              alt="Hero-Icon"
-              className="md:w-15 md:h-15 object-cover w-7 h-7"
+              src="https://i.ibb.co/WW9g140C/demo.jpg"
+              alt="Logo"
+              className="w-8 h-8 rounded-full"
             />
-            <span className="md:text-2xl bg-clip-text bg-gradient-to-r from-[#632ee3] to-[#9f62f2] text-transparent">
-              HERO.IO
+            <span className="text-2xl bg-clip-text bg-gradient-to-r from-[#632ee3] to-[#9f62f2] text-transparent font-bold">
+              Ragory
             </span>
+          </NavLink>
+        </div>
+
+        {/* Buttons */}
+        <div className="hidden md:flex gap-3">
+          <NavLink
+            to="/login"
+            className="px-5 py-2 rounded-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:opacity-90 transition"
+          >
+            Sign In
+          </NavLink>
+          <NavLink
+            to="/register"
+            className="px-5 py-2 rounded-lg font-semibold border border-purple-500 text-purple-600 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition"
+          >
+            Sign Up
           </NavLink>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`flex flex-col md:hidden mt-1 ml-1 absolute bg-gray-300 font-light text-xl p-5 rounded-xl transition-all duration-300 ${
-            toggle ? "-top-80" : "top-22 -left-0 space-y-3"
+          className={`md:hidden absolute left-0 right-0 bg-gray-50 shadow-md p-5 rounded-lg transition-all duration-300 ${
+            toggle ? "top-16 opacity-100" : "-top-96 opacity-0"
           }`}
         >
-          {navItems.map((item) => (
+          <div className="flex flex-col gap-3">
             <NavLink
-              key={item.name}
-              to={item.path}
-              className={({ isActive }) => (isActive ? activeclass : "")}
+              to="/login"
+              className="px-4 py-2 rounded-lg font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white text-center"
             >
-              <span className="flex gap-1 items-center">
-                {item.icon}
-                {item.name}
-              </span>
+              Sign In
             </NavLink>
-          ))}
-        </div>
-
-        {/* Desktop Menu */}
-        <div className="md:flex items-center gap-5 hidden">
-          {navItems.map((item) => (
             <NavLink
-              key={item.name}
-              to={item.path}
-              className={({ isActive }) => (isActive ? activeclass : "")}
+              to="/register"
+              className="px-4 py-2 rounded-lg font-semibold border border-purple-500 text-purple-600 text-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white transition"
             >
-              <span className="flex gap-1 justify-center items-center">
-                {item.icon}
-                {item.name}
-              </span>
+              Sign Up
             </NavLink>
-          ))}
-        </div>
-
-        {/* GitHub Button */}
-        <div className="flex">
-          <button className="btn text-white bg-gradient-to-r from-[#632ee3] to-[#9f62f2] text-xl py-6 px-5 md:p-7 md:w-40 hover:from-[#4b1fe0] hover:to-[#4b1fe0] ">
-            <NavLink
-              target="_blank"
-              className="flex items-center gap-2"
-              to="https://github.com/EmonHira135923"
-            >
-              <Github /> Contribute
-            </NavLink>
-          </button>
+          </div>
         </div>
       </div>
     </nav>
   );
 };
 
-export default Navvar;
+export default Navbar;

@@ -1,9 +1,9 @@
 import React from "react";
-
+import LogInForm from "../../Componets/LogIn/LogInForm";
 const LogIn = () => {
   return (
     <div>
-      <h1>This is LogIn</h1>
+      <LogInForm></LogInForm>
     </div>
   );
 };
